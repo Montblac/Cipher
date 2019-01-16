@@ -22,7 +22,7 @@ class Cipher:
     @key.setter
     def key(self, value):
         self._key = value
-        print("$ The cipher key has been set to " + str(self._key))
+        # print("$ The cipher key has been set to " + str(self._key))
 
     @property
     def text(self):
@@ -31,7 +31,7 @@ class Cipher:
     @text.setter
     def text(self, text):
         self._text = text
-        print("$ The text has been set.")
+        # print("$ The text has been set.")
 
     def mode(self):
         if self.mode == 0:
