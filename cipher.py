@@ -10,7 +10,7 @@ mode 1 = decrypt
 
 
 class Cipher:
-    def __init__(self, key=0, text=None, ctype='c', mode=0):
+    def __init__(self, key='0', text='', ctype='c', mode=0):
         self._key = key
         self._text = text
         self._ctype = ctype
@@ -52,10 +52,10 @@ class Cipher:
         self.mode ^= 1
 
     def transform(self):
-        if self._ctype == 'c':
-            self._text = caesar(self.key, self.text, self.mode)
+        if self._ctype == 'c' and self._key.isdigit():
+            self._text = caesar(int(self._key), self._text, self.mode)
         elif self._ctype == 'a':
-            self._text = atbash(self.text, self.mode)
+            self._text = atbash(self._text, self.mode)
         else:
             pass
 
@@ -82,21 +82,5 @@ def caesar(key, text, mode):
     return text.lower().translate(trantab)
 
     # case-sensitive
-    """
-    for char in text:
-        if char.isalpha():
+    # WIP
 
-    result = ''
-    for char in text:
-        if mode == 0:
-
-            (ord(char) + key - 64 ) % 64 + 64
-            if val > 122:
-                val = val % 122 + 97
-
-            result += chr((ord(char) + key) % 26)
-            print(ord(char) + key)
-        else:
-            result += chr((ord(char) - key) % 26)
-    return result
-    """
