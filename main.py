@@ -2,7 +2,7 @@ import cipher
 import random
 
 if __name__ == '__main__':
-    ciph = cipher.Cipher()
+    ciph = cipher.Cipher(ctype='a')
 
     texts = [
         "Facts are stubborn, but statistics are more pliable.",
@@ -22,5 +22,4 @@ if __name__ == '__main__':
 
         ciph.toggle_mode()
         ciph.transform()
-        print("Decrypted MSG: " + ciph.text)
-        print("\n")
+        print("Decrypted MSG: " + ciph.text + "\n")
